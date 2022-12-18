@@ -1,0 +1,642 @@
+/** @format */
+
+.homeHero {
+	position: relative;
+	@include ipad {
+		position: relative;
+		height: calc(var(--vh,1vh)*100);;
+		background-size: cover;
+	}
+	@include small {
+		padding: 8vh 30px 0;
+	}
+	&::before {
+		content: "";
+		position: fixed;
+		top: 16.8vw;
+		left: 40px;
+		width: 10px;
+		height: 226px;
+		z-index: 1;
+		background: url(../img/common/txt2.svg);
+		@include smallNotepc {
+			content: none;
+		}
+	}
+	.heroImg {
+		margin-left: auto;
+		width: 74.5vw;
+		height: 89vh;
+		overflow: hidden;
+		border-radius: 0 0 0 135px;
+		@include ipad {
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin: initial;
+			width: 100vw;
+			height: calc(var(--vh,1vh)*100);
+			z-index: -1;
+			border-radius: 0 0 0 80px;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			animation: zoom 10s 0s forwards;
+			@keyframes zoom {
+				0% {
+					transform: scale(1);
+				}
+				100% {
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+	h1 {
+		position: absolute;
+		top: 28vh;
+		left: 9.3vw;
+		z-index: 1;
+		@include tab {
+			top: 20vh;
+			left: 5.3vw;
+		}
+		@include ipad {
+			top: 11vh;
+			left: 50%;
+			transform: translateX(-50%);
+			@include small {
+				position: static;
+				transform: translateY(0);
+			}
+		}
+		img {
+			width: 25vw;
+			@include tab {
+				width: 335px;
+			}
+			@include small {
+				width: 280px;
+			}
+		}
+		p {
+			margin-top: 15px;
+			margin-left: 20px;
+			font-size: 1.8rem;
+			font-weight: 500;
+			@include small {
+				margin-left: 10px;
+				font-size: 1.4rem;
+			}
+		}
+	}
+}
+
+	.homeNews {
+		padding: 0 30px;
+		.inner {
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+			gap: 0 120px;
+			margin: 160px auto 0;
+			max-width: 1200px;
+			@include ipad {
+				margin-top: 100px;
+				display: block;
+			}
+		}
+		h2 {
+			position: relative;
+			padding-bottom: 26px;
+			flex-shrink: 0;
+			&::after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 37px;
+				height: 5px;
+				background-color: $subColor;
+				border-radius: 5px;
+			}
+		}
+		.list-card {
+			position: relative;
+			max-width: 980px;
+			border-top: solid 1px #e6e6e6;
+			@include ipad {
+				margin-top: 35px;
+				border-top: none;
+			}
+			li {
+				margin-top: 30px;
+				.title {
+					@include small {
+						margin-top: 30px;
+						margin-bottom: 14px;
+					}
+				}
+				.box {
+					position: relative;
+					justify-content: flex-start;
+					align-items: flex-start;
+					gap: 0 30px;
+					display: flex;
+					padding: 0 100px 30px 30px;
+					border-bottom: 1px solid #e6e6e6;
+					@include small {
+						padding: 0 0 30px;
+					}
+					&:hover {
+						&::before {
+							width: 100%;
+						}
+						&::after {
+							right: 20px;
+							background: url(../img/common/arrow1-hover1.svg);
+						}
+						h3 {
+							color: $subColor;
+						}
+					}
+					&::before {
+						content: "";
+						position: absolute;
+						left: 0;
+						bottom: 0;
+						width: 0;
+						height: 1px;
+						transition: 0.3s all;
+						background-color: $subColor;
+					}
+					&::after {
+						content: "";
+						position: absolute;
+						top: calc(50% - 20px);
+						transform: translateY(-50%);
+						right: 30px;
+						width: 14px;
+						height: 12px;
+						transition: 0.3s all;
+						background: url(../img/common/arrow1.svg);
+						@include small {
+							content: none;
+						}
+					}
+				}
+			}
+			.thumbnail {
+				max-width: 120px;
+				height: auto;
+				flex-shrink: 0;
+				border-radius: 10px;
+				img {
+					object-fit: cover;
+				}
+			}
+			time {
+				color: $greyColor;
+				@include small {
+					font-size: 1.4rem;
+				}
+			}
+			span {
+				display: inline-block;
+				margin-left: 20px;
+				padding: 0 16px;
+				height: 18px;
+				font-size: 1.2rem;
+				font-weight: 500;
+				line-height: 18px;
+				color: #ffffff;
+				background-color: #868c9e;
+				border-radius: 2px;
+				@include small {
+					margin-left: 15px;
+				}
+			}
+			h3 {
+				margin-top: 5px;
+				font-weight: 500;
+			}
+			p {
+				margin-top: 10px;
+				font-size: 1.4rem;
+				color: $greyColor;
+				@include small {
+					margin-top: 0;
+					margin-left: auto;
+				}
+			}
+		}
+		.c-btn {
+			a {
+				min-width: 190px;
+			}
+		}
+	}
+
+	.homeAbout {
+		.container1 {
+			margin: 120px 8% 0;
+			@include tab {
+				margin: 120px 0 0;
+			}
+			.inner {
+				display: flex;
+				justify-content: flex-start;
+				align-items: flex-start;
+				gap: 0 100px;
+				max-width: 1600px;
+				@include tab {
+					display: block;
+				}
+			}
+			.img {
+				max-width: 760px;
+				img {
+					width: 100%;
+				}
+				@include tab {
+					margin-left: auto;
+				}
+				@include tab {
+					max-width: 526px;
+				}
+				@include ipad {
+					max-width: 440;
+				}
+				@include small {
+					max-width: 345px;
+				}
+			}
+			.block {
+				margin-top: 9.3vw;
+				max-width: 540px;
+				@include tab {
+					margin: 0 30px;
+				}
+				@include ipad {
+					margin: auto;
+				}
+				@include small {
+					margin: -30px 30px 0;
+				}
+			}
+			h3 {
+				margin-top: 40px;
+				font-size: 3.2rem;
+				line-height: 1.5;
+				@include ipad {
+					margin-top: 30px;
+				}
+				@include small {
+					font-size: 2.5rem;
+				}
+				p {
+					font-size: 2.5rem;
+					font-weight: 700;
+				}
+			}
+			.text {
+				margin-top: 31px;
+				font-size: 1.8rem;
+				@include ipad {
+					margin-top: 21px;
+				}
+				@include small {
+					font-size: 1.4rem;
+				}
+			}
+		}
+	}
+	.container2 {
+		margin: 127px 18.7% 0;
+		@include tab {
+			margin: 60px 0 0;
+		}
+		.inner {
+			position: relative;
+			display: flex;
+			justify-content: flex-end;
+			align-items: flex-end;
+			max-width: 1200px;
+			@include ipad {
+				display: block;
+			}
+		}
+		.block {
+			margin-top: 30px;
+			margin-bottom: 250px;
+			max-width: 560px;
+			color: $greyColor;
+			@include tab {
+				margin-bottom: 150px;
+			}
+			@include ipad {
+				margin-bottom: 100px;
+				padding: 50px 30px;
+				max-width: 400px;
+				background-color: #eaf0f9;
+				border-radius: 0 50px 50px 0;
+			}
+			@include small {
+				max-width: 345px;
+			}
+		}
+		h4 {
+			position: relative;
+			&::after {
+				content: "";
+				position: absolute;
+				top: 45px;
+				left: 0;
+				width: 40px;
+				height: 1px;
+				background-color: $greyColor;
+			}
+		}
+		.name {
+			margin-top: 36px;
+			font-size: 1.8rem;
+			font-weight: 500;
+		}
+		p {
+			margin-top: 16px;
+			@include small {
+				font-size: 1.4rem;
+			}
+			&:last-of-type {
+				margin-top: 25px;
+				@include ipad {
+					margin-top: 20px;
+				}
+			}
+		}
+		.img {
+			margin-right: 25px;
+			width: 380px;
+			@include ipad {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				margin-right: 0;
+				margin-bottom: -100px;
+			}
+			@include small {
+				width: 156px;
+			}
+		}
+	}
+
+	.homeService {
+		margin-left: auto;
+		padding: 0 30px 160px;
+		max-width: 1760px;
+		background-color: #f8f8f8;
+		border-radius: 120px 0 0 120px;
+		@include notepc {
+			margin-left: 30px;
+		}
+		@include ipad {
+			padding-bottom: 100px;
+			border-radius: 60px 0 0 60px;
+		}
+		.inner {
+			margin: 0 auto;
+			max-width: 1340px;
+		}
+		h2 {
+			top: -50px;
+			@include ipad {
+				top: 100px;
+			}
+		}
+		.intro {
+			margin-top: -20px;
+			@include ipad {
+				margin-top: 115px;
+			}
+			@include small {
+				font-size: 1.4rem;
+			}
+		}
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			flex-wrap: wrap;
+			gap: 60px;
+			margin-top: 80px;
+			margin-bottom: 100px;
+			max-width: 1200px;
+			@include small {
+				gap: 50px;
+				margin-top: 60px;
+			}
+		}
+		.box {
+			width: 360px;
+			.text {
+				position: relative;
+				margin-top: 30px;
+				padding-left: 25px;
+				@include small {
+					margin-top: 20px;
+					padding-left: 18px;
+				}
+				&::before {
+					content: "";
+					position: absolute;
+					top: 15px;
+					left: 0;
+					width: 10px;
+					height: 5px;
+					background-color: $subColor;
+					border-radius: 5px;
+				}
+			}
+			h3 {
+				font-size: 1.8rem;
+				font-weight: 700;
+			}
+			p {
+				margin-top: 20px;
+				line-height: 1.6;
+				@include small {
+					font-size: 1.4rem;
+					margin-top: 15px;
+					line-height: 1.7;
+				}
+			}
+			.price {
+				margin-top: 10px;
+				color: $greyColor;
+				@include small {
+					margin-top: 0;
+				}
+			}
+		}
+		.block {
+			position: relative;
+			padding-top: 40px;
+			border-top: 1px solid $greyColor;
+			@include tab {
+				padding-top: 58px;
+			}
+			&::after {
+				content: "";
+				position: absolute;
+				top: -40px;
+				left: 30px;
+				width: 218px;
+				height: 118px;
+				background: url(../img/home/homeText6.svg);
+				@include tab {
+					top: -60px;
+					left: -10px;
+					width: 180px;
+					height: 97px;
+					background: url(../img/home/homeText6-sp.svg);
+				}
+			}
+			.list {
+				display: flex;
+				justify-content: flex-start;
+				align-items: flex-start;
+				flex-wrap: wrap;
+				gap: 0 120px;
+				margin-left: 345px;
+				@include tab {
+					margin-left: 46px;
+				}
+				@include ipad {
+					margin-left: 20px;
+				}
+			}
+			ul {
+				max-width: 415px;
+			}
+			li {
+				position: relative;
+				font-size: 1.8rem;
+				@include small {
+					font-size: 1.6rem;
+					line-height: 1.6;
+				}
+				&::before {
+					content: "";
+					position: absolute;
+					top: 7px;
+					left: -18px;
+					width: 18px;
+					height: 18px;
+					border-radius: 50%;
+					background-color: $mainColor;
+					@include ipad {
+						width: 14px;
+						height: 14px;
+					}
+				}
+			}
+			.last {
+				margin-top: 36px;
+				margin-left: -20px;
+				max-width: 342px;
+				&::before {
+					content: none;
+				}
+				.emphasis {
+					margin-bottom: 10px;
+					font-size: 2rem;
+					font-weight: 700;
+					@include small {
+						font-size: 1.8rem;
+					}
+				}
+				p {
+					margin-top: 0;
+					margin-left: 0;
+				}
+			}
+			.text {
+				max-width: 1140px;
+				margin: 60px 30px 0;
+				@include small {
+					margin: 30px 0 0;
+					font-size: 1.4rem;
+				}
+			}
+		}
+	}
+
+	.homeReserve {
+		position: relative;
+		padding: 160px 30px 200px;
+		@include small {
+			padding: 380px 30px 160px;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			top: -100px;
+			right: 0;
+			width: 493px;
+			height: 336px;
+			background: url(../img/home/homeBg1.png);
+			background: image-set(url(../img/home/homeBg1.png) 1x, url(../img/home/homeBg1@2x.png) 2x);
+			@include small {
+				top: 100px;
+				left: 0;
+				max-width: 345px;
+				width: auto;
+				height: 300px;
+				background: url(../img/home/homeBg1-sp.png);
+				background: image-set(url(../img/home/homeBg1-sp.png) 1x, url(../img/home/homeBg1-sp@2x.png) 2x);
+			}
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 100px;
+			left: 0;
+			width: 240px;
+			height: 328px;
+			background: url(../img/home/homeBg2.png);
+			background: image-set(url(../img/home/homeBg2.png) 1x, url(../img/home/homeBg2@2x.png) 2x);
+			@include small {
+				content: none;
+			}
+		}
+		.inner {
+			position: relative;
+			margin: 0 auto;
+			max-width: 1200px;
+			z-index: 1;
+		}
+		.intro {
+			margin-top: 30px;
+			line-height: 1.6;
+			@include small {
+				margin-top: 15px;
+				font-size: 1.4rem;
+				line-height: 1.7;
+			}
+		}
+		.form {
+			margin: 120px auto 0;
+			//仮の大きさ指定
+			max-width: 1110px;
+			height: 460px;
+			border: solid $greyColor;
+			opacity: 0.5;
+			@include small {
+				margin-top: 80px;
+				width: 100%;
+				height: 385px;
+			}
+		}
+	}

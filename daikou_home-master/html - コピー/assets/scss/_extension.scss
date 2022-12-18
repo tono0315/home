@@ -1,0 +1,359 @@
+/** @format */
+
+@charset "utf-8";
+
+//responsive
+$wide: 1921px;
+$res1680: 1680px;
+$res1440: 1440px;
+$notepc: 1366px; //ノートPC
+$underNotepc: 1365px; //ノートPC以下
+$smallNotepc: 1280px; // 小さめノートPC以下
+$tab: 1024px; // タブレット
+$underTab: 1023px; // タブレット以下
+$ipad: 768px; //ipad
+$sp: 767px; // スマホレイアウト
+$small: 428px; //スマホ現行サイズ
+$iphone678: 375px;//iphone6,7,8
+$android: 360px; //android
+$iphone5: 320px; //iphone5
+
+// #region responsive
+
+//IEのみ適用
+@mixin IE {
+	@media all and (-ms-high-contrast: none) {
+		@content;
+	}
+}
+
+//Retinaディスプレイのみ適用
+@mixin retina {
+	@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+		@content;
+	}
+}
+
+@mixin wide {
+	@media (min-width: ($wide)) {
+		@content;
+	}
+}
+@mixin res1680 {
+	@media (max-width: ($res1680)) {
+		@content;
+	}
+}
+@mixin res1440 {
+	@media (max-width: ($res1440)) {
+		@content;
+	}
+}
+@mixin notepc {
+	@media (max-width: ($notepc)) {
+		@content;
+	}
+}
+@mixin underNotepc {
+	@media (max-width: ($underNotepc)) {
+		@content;
+	}
+}
+@mixin smallNotepc {
+	@media (max-width: ($smallNotepc)) {
+		@content;
+	}
+}
+@mixin tab {
+	@media (max-width: ($tab)) {
+		@content;
+	}
+}
+@mixin underTab {
+	@media (max-width: ($underTab)) {
+		@content;
+	}
+}
+@mixin ipad {
+	@media (max-width: ($ipad)) {
+		@content;
+	}
+}
+@mixin sp {
+	@media (max-width: ($sp)) {
+		@content;
+	}
+}
+@mixin small {
+	@media (max-width: ($small)) {
+		@content;
+	}
+}
+
+@mixin iphone678 {
+	@media (max-width: ($iphone678)) {
+		@content;
+	}
+}
+
+@mixin android {
+	@media (max-width: ($android)) {
+		@content;
+	}
+}
+@mixin iphone5 {
+	@media (max-width: ($iphone5)) {
+		@content;
+	}
+}
+// #endregion
+
+// #region 変数
+
+//width & height
+
+//margin & padding
+
+//font-family
+$mainFont: 'Noto Sans JP', sans-serif;
+$subFont: 'Outfit', sans-serif;
+
+//color
+$mainColor: #172E59;
+$subColor: #ED3242;
+$greyColor: #868C9E;
+
+//font-size
+
+//other
+
+// #endregion
+
+// #region mixin
+
+/*---------------------------------
+  サイト専用
+---------------------------------*/
+
+/*---------------------------------
+  共通
+---------------------------------*/
+// メインフォント
+@mixin mainFont {
+	font-family: $mainFont;
+}
+// サブフォント
+@mixin subFont {
+	font-family: $subFont;
+	font-weight: 400;
+}
+//メインカラー
+@mixin mainColor {
+	color: $mainColor;
+}
+// サブカラー
+@mixin subColor {
+	color: $subColor;
+}
+//グレーカラー
+@mixin grayColor {
+	color: $grayColor;
+}
+// ホバー：下線
+@mixin hoverTdul {
+	text-decoration: underline;
+	&:hover {
+		text-decoration: none;
+		@content;
+	}
+}
+//ホバーで下線表示
+@mixin hoverTdul2 {
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+		@content;
+	}
+}
+// ホバー：不透明度
+@mixin hoverOp($ts: 0.3s, $op: 0.8) {
+	transition: $ts opacity;
+	&:hover {
+		transition: $ts opacity;
+		opacity: $op;
+		@content;
+	}
+}
+// ホバー：色変更
+@mixin hoverC($ts: 0.3s, $c: $mainColor) {
+	transition: $ts color;
+	&:hover {
+		transition: $ts color;
+		color: $c;
+		@content;
+	}
+}
+// ホバー：背景色変更
+@mixin hoverBgc($ts: 0.3s, $bgc: $mainColor) {
+	transition: $ts background-color;
+	&:hover {
+		transition: $ts background-color;
+		background-color: $bgc;
+		@content;
+	}
+}
+// object-fit:cover
+@mixin object-fit($oj: cover, $w: 100%, $mw: null, $h: null, $mh: null) {
+	object-fit: $oj;
+	font-family: "object-fit: cover;";
+	width: $w;
+	max-width: $mw;
+	height: $h;
+	max-height: $mh;
+}
+// flex-box：最後左寄せ
+@mixin clumn3($w) {
+	&:after {
+		content: "";
+		display: block;
+		width: $w;
+		height: 0;
+	}
+}
+// 文章二行目から一文字右よせ
+@mixin indent {
+	padding-left: 1em;
+	text-indent: -1em;
+}
+//googlemap レスポンシブ
+@mixin googleMap($w: 100%, $mt: 0, $mb: 0, $pt: null) {
+	.map {
+		max-width: $w;
+		margin: $mt auto $mb;
+		@content;
+		.mapWrap {
+			position: relative;
+			width: 100%;
+			padding-top: $pt; //アスペクト比 高さ÷幅×100
+		}
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+//画像縦横比保ったままトリミング
+@mixin imgTrimmingWrap($mw: null, $w: null, $pt: 100%) {
+	width: $w;
+	max-width: $mw;
+	position: relative;
+	height: auto;
+	&::before {
+		content: "";
+		display: block;
+		padding-top: $pt; //アスペクト比 高さ÷幅×100
+	}
+	img {
+		position: absolute;
+		object-fit: cover;
+		font-family: "object-fit: cover;";
+		width: 100%;
+		height: 100%;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+	}
+}
+// #endregion
+
+// #region display:none設定
+@media screen and (min-width: 1280px) {
+	.over1280 {
+		display: block;
+	}
+	.under1280 {
+		display: none !important;
+	}
+}
+@media screen and (max-width: 1279px) {
+	.over1280 {
+		display: none !important;
+	}
+	.under1280 {
+		display: block;
+	}
+}
+@media screen and (min-width: 1025px) {
+	.over1024 {
+		display: block;
+	}
+	.under1024 {
+		display: none !important;
+	}
+}
+@media screen and (max-width: 1024px) {
+	.over1024 {
+		display: none !important;
+	}
+	.under1024 {
+		display: block;
+	}
+}
+
+@media screen and (min-width: 769px) {
+	.over768 {
+		display: block;
+	}
+	.under768 {
+		display: none !important;
+	}
+}
+@media screen and (max-width: 768px) {
+	.over768 {
+		display: none !important;
+	}
+	.under768 {
+		display: block;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.over767 {
+		display: block;
+	}
+	.under767 {
+		display: none !important;
+	}
+}
+@media screen and (max-width: 767px) {
+	.over767 {
+		display: none !important;
+	}
+	.under767 {
+		display: block;
+	}
+}
+
+@media screen and (min-width: 425px) {
+	.over424 {
+		display: block;
+	}
+	.under424 {
+		display: none !important;
+	}
+}
+@media screen and (max-width: 424px) {
+	.over424 {
+		display: none !important;
+	}
+	.under424 {
+		display: block;
+	}
+}
+// #endregion

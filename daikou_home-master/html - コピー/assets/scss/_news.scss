@@ -1,0 +1,142 @@
+/** @format */
+
+.newsHero {
+	margin-left: auto;
+	padding: 180px 0 124px 200px;
+	width: 91vw;
+	height: 460px;
+	border-radius: 0 0 0 80px;
+	background-color: #f8f8f8;
+  @include ipad{
+    margin-left: 0;
+    margin-right: auto;
+    padding: 130px 40px 0 ;
+    height: 340px;
+    border-radius: 0 0 80px 0;
+  }
+  @include small{
+    height: 287px;
+  }
+
+	&::before {
+		content: "";
+		position: fixed;
+		top: 16.8vw;
+		left: 40px;
+		width: 10px;
+		height: 226px;
+		z-index: 1;
+		background: url(../img/common/txt2.svg);
+		@include smallNotepc {
+			content: none;
+		}
+	}
+
+}
+
+.newsMain {
+	margin: 160px 30px 200px;
+  @include small{
+    margin: 80px 30px 160px;
+  }
+	.container {
+		margin: auto;
+		max-width: 800px;
+	}
+	.box {
+		padding: 80px 0;
+		border-bottom: solid 1px #e6e6e6;
+    @include small{
+      padding: 60px 0;
+    }
+		&:first-of-type {
+			padding-top: 0;
+		}
+	}
+  time{
+    color: $greyColor;
+    margin-right: 20px;
+    @include small{
+      font-size: 1.4rem;
+      margin-right: 15px;
+    }
+  }
+  span{
+    padding: 0 16px;
+    height: 18px;
+    font-size: 1.2rem;
+    line-height: 18px;
+    color: #ffffff;
+    background-color: $greyColor;
+    border-radius: 2px;
+  }
+  h2{
+    margin-top: 23px;
+    margin-bottom: 31px;
+    font-size: 2.4rem;
+    font-weight: 500;
+    line-height: 1.4;
+    @include small{
+      margin-top: 13px;
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+    }
+  }
+  p{
+    margin-top: 31px;
+    line-height: 1.6;
+    @include small{
+      margin-top: 20px;
+      font-size: 1.4rem;
+      line-height: 1.7;
+    }
+  }
+  img{
+    height: auto;
+    img{
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+.archiveNav {
+	margin-top: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+  @include small{
+    margin-top: 40px;
+  }
+	a,
+	span {
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+    border-radius: 50%;
+		margin: 0 5px;
+		color: $greyColor;
+		font-size: 1.5rem;
+    font-weight: 500;
+		@include subFont;
+		&:hover {
+			background-color: $mainColor;
+			color: #fff;
+		}
+	}
+  a:first-of-type,
+  a:last-of-type{
+    &:hover{
+      color: $mainColor;
+      background-color: #ffffff;
+    }
+  }
+	.current {
+		background-color: $mainColor;
+		color: #fff;
+		&:hover {
+			background-color: $mainColor;
+		}
+	}
+}

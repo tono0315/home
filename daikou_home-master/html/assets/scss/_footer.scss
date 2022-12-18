@@ -1,0 +1,105 @@
+/** @format */
+
+footer {
+	padding: 100px 30px 20px;
+	width: 100%;
+	color: #ffffff;
+	background-color: $mainColor;
+
+	@include ipad {
+		padding-top: 60px;
+	}
+
+	.inner {
+		margin: 0 auto;
+		max-width: 1200px;
+	}
+
+	.info {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		flex-wrap: wrap;
+		gap: 60px 10px;
+
+		@include ipad {
+			display: block;
+		}
+	}
+
+	ul {
+		margin-top: 60px;
+
+		@include small {
+			margin-top: 40px;
+		}
+	}
+
+	li {
+		line-height: 1.6;
+
+		@include small {
+			font-size: 1.4rem;
+		}
+	}
+
+	.line {
+		margin-top: 20px;
+	}
+
+	.linkBox {
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		gap: 10px 20px;
+		margin-top: 50px;
+	}
+
+	.c-btn {
+		margin-top: 0;
+
+		a {
+			min-width: 235px;
+			color: $mainColor;
+			border: solid 2px $mainColor;
+
+			&:hover {
+				border: solid 2px #ffffff;
+				@include tab{
+					border: solid 2px $mainColor;
+				}
+			}
+		}
+	}
+
+	.map {
+		width: 480px;
+		height: 300px;
+
+		@include tab {
+			width: 400px;
+		}
+
+		@include ipad {
+			margin-top: 60px;
+			width: 100%;
+			height: 359px;
+		}
+
+		iframe {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.copyright {
+		margin-top: 62px;
+		font-size: 1.2rem;
+		text-align: right;
+
+		@include ipad {
+			margin-top: 40px;
+		}
+	}
+}

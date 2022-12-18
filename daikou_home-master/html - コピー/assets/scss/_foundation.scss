@@ -1,0 +1,125 @@
+/** @format */
+
+@import "extension";
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	position: relative;
+	font-size: 1.6rem;
+	@include mainFont;
+	@include mainColor;
+	font-weight: 400;
+	background-color: #ffffff;
+	line-height: 1.7;
+}
+.heroLink {
+	position: fixed;
+	top: 0;
+	right: 20px;
+	z-index: 1;
+	@include ipad {
+		top: auto;
+		right: 0;
+		bottom: 60px;
+	}
+	&:hover {
+		img:first-child {
+			opacity: 0;
+		}
+		img:last-child {
+			opacity: 1;
+		}
+	}
+	.inner {
+		position: relative;
+		display: block;
+		width: 189px;
+		@include ipad {
+			width: 230px;
+			height: 261px;
+		}
+		@include small {
+			width: 126px;
+			height: 143px;
+		}
+	}
+	img {
+		position: absolute;
+		max-width: 100%;
+		transition: 0.3s all;
+		&:nth-child(2) {
+			opacity: 0;
+		}
+	}
+}
+.c-ttl{
+	position: relative;
+	padding-bottom: 24px;
+	@include small{
+		padding-bottom: 16px;
+	}
+	&::after{
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 37px;
+		height: 5px;
+		background-color: $subColor;
+		border-radius: 5px;
+	}
+	p{
+		margin-top: 20px;
+		font-size: 2.5rem;
+		font-weight: 700;
+		@include small{
+			margin-top: 10px;
+			font-size: 1.8rem;
+		}
+	}
+}
+
+.c-btn {
+	display: block;
+	position: relative;
+	margin-top: 40px;
+	text-align: right;
+	@include small{
+		margin-top: 30px;
+	}
+	a {
+		position: relative;
+		display: inline-block;
+		padding: 20px 20px 20px 30px;
+		font-size: 1.5rem;
+		font-weight: 500;
+		background-color: #f8f8f8;
+		border-radius: 50px;
+		text-align: left;
+		@include small{
+			padding: 18px 20px 18px 30px;
+		}
+		&:hover{
+			color: #ffffff;
+			background-color: $mainColor;
+			&::after{
+				right: 20px;
+				background: url(../img/common/arrow1-hover2.svg);
+			}
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: 30px;
+			width: 14px;
+			height: 12px;
+			background: url(../img/common/arrow1.svg);
+			transition: 0.3s all;
+		}
+	}
+}
